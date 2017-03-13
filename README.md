@@ -41,7 +41,7 @@ Once you've implemented your scholarship selection algorithm, build a small REST
 Answer: `5 * 9 * 25 = 1125`
 
 API Specs:
-`POST /max_scholarship`  
+`POST /max_scholarship`
 `'Content-Type: application/json'`
 
 Sample json:
@@ -55,3 +55,9 @@ Response:
 ```json
 {"sequence": [5,9,25], "total": 1125}
 ```
+
+## Credits
+
+- Original problem from [NextGenVest/challenge](https://github.com/NextGenVest/challenge) at GitHub.
+- Original base for REST API [Rafase282/Mangadb](https://github.com/Rafase282/Mangadb), **My own RESTful API.**
+- Help with Mocha/Chai POST test from [scotch tutorials](https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai).
