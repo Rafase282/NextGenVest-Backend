@@ -1,25 +1,50 @@
-/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "expect" }]*/
+/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "expect, done" }]*/
 /*global describe it */
 'use strict';
-const request = require('supertest');
-const expect = require('chai').expect;
-let server = require('../server.js');
-server = request.agent('http://localhost:' + process.env.PORT);
 
-describe('SAMPLE unit test', function() {
+//Require the dev-dependencies
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const server = require('../server');
+const api = require('../controllers/scholarships.js');
+chai.should();
+chai.use(chaiHttp);
 
-  it('GET /: Respond with an HTML Site', function(done) {
-    server
+describe('Test for server response', () => {
+
+  it('GET /: Responds with JSON Message', (done) => {
+    chai.request(server)
       .get('/')
-      .expect('Content-Type', 'text/html; charset=utf-8')
-      .expect(200, done);
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        res.body.should.have.property('message');
+        res.body.message.should.be.a('string');
+        res.body.should.be.eql({
+          message: "Welcome, lets find your best scholarships!"
+        });
+        done();
+      });
+  });
+  it('POST /max_scholarship: It should return an object with properties sequence and total', (done) => {
+    const matrix = {
+      data: [[1,2,3,4,5], [1,1,2,3,5], [3,4,5,5,5], [3,4,5,9,5], [1,1,5,5,25]]
+    }
+    chai.request(server)
+      .post('/max_scholarship')
+      .send(matrix)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a('object');
+        res.body.should.have.property('sequence');
+        res.body.sequence.should.be.a('array');
+        res.body.should.have.property('total');
+        res.body.total.should.be.a('number');
+        done();
+      });
   });
 
-  it('GET /api/v1: Respond with JSON Message', function(done) {
-    server
-      .get('/api/v1')
-      .expect('Content-Type', 'application/json; charset=utf-8')
-      .expect(200, done);
-  }); // END JSON MSG
+});
 
+describe('Test API inner functions', () => {
 });
