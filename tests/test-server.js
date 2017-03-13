@@ -11,8 +11,19 @@ const expect = require('expect');
 chai.should();
 chai.use(chaiHttp);
 
-describe('Test for server response', () => {
 
+// Global values
+const seq = [5, 9, 25];
+const data = [
+  [1, 2, 3, 4, 5],
+  [1, 1, 2, 3, 5],
+  [3, 4, 5, 5, 5],
+  [3, 4, 5, 9, 5],
+  [1, 1, 5, 5, 25]
+];
+const matrix = {data: data};
+
+describe('Test for server response\n', () => {
   it('GET /: Responds with JSON Message', (done) => {
     chai.request(server)
       .get('/')
@@ -28,16 +39,7 @@ describe('Test for server response', () => {
         done();
       });
   });
-  it('POST /max_scholarship: It should return an object with properties sequence and total', (done) => {
-    const matrix = {
-      data: [
-        [1, 2, 3, 4, 5],
-        [1, 1, 2, 3, 5],
-        [3, 4, 5, 5, 5],
-        [3, 4, 5, 9, 5],
-        [1, 1, 5, 5, 25]
-      ]
-    }
+  it('POST /max_scholarship: It should return an object \nwith properties sequence and total', (done) => {
     chai.request(server)
       .post('/max_scholarship')
       .send(matrix)
@@ -55,15 +57,7 @@ describe('Test for server response', () => {
 
 });
 
-describe('Test API inner functions', () => {
-  const seq = [5, 9, 25];
-  const data = [
-    [1, 2, 3, 4, 5],
-    [1, 1, 2, 3, 5],
-    [3, 4, 5, 5, 5],
-    [3, 4, 5, 9, 5],
-    [1, 1, 5, 5, 25]
-  ];
+describe('Test API inner functions\n', () => {
   it('Gives the product of a sequence', (done) => {
     const res = api.seqTotal(seq);
     expect(res)
