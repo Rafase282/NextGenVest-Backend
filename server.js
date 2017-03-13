@@ -44,7 +44,7 @@ router.route('/max_scholarship').post(matrixCtrl.postMatrix)
 
 // CONFIGURE & START THE SERVER
 // =============================================================================
-let port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log('Node.js listening on port ' + port);
 });

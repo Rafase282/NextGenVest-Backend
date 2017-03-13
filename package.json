@@ -4,8 +4,9 @@
   "description": "NextGenVest Back-end Challenge, this allows you to choose the best scholarships you have available.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "nodemon server.js",
+    "lint": "eslint *.js && eslint ./controllers/*.js"
   },
   "repository": {
     "type": "git",
@@ -25,8 +26,10 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "dotenv": "^4.0.0",
+    "eslint": "^3.17.1",
     "express": "^4.15.2",
     "nodemon": "^1.11.0",
     "path": "^0.12.7"
-  }
+  },
+  "devDependencies": {}
 }

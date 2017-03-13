@@ -12,6 +12,6 @@ exports.getWelcome = function (req, res) {
  * Returns the manga information.
  * Accessed at POST /api/v#/max_scholarship */
 exports.postMatrix = function (req, res) {
-  let data = req.body.data;
+  const data = req.body.data;
   res.status(200).json({sequence: data, total: data.length});
 };
