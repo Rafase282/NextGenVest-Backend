@@ -6,7 +6,8 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../server');
-const api = require('../controllers/scholarships.js');
+const api = require('../controllers/scholarships');
+const expect = require('expect');
 chai.should();
 chai.use(chaiHttp);
 
@@ -29,7 +30,13 @@ describe('Test for server response', () => {
   });
   it('POST /max_scholarship: It should return an object with properties sequence and total', (done) => {
     const matrix = {
-      data: [[1,2,3,4,5], [1,1,2,3,5], [3,4,5,5,5], [3,4,5,9,5], [1,1,5,5,25]]
+      data: [
+        [1, 2, 3, 4, 5],
+        [1, 1, 2, 3, 5],
+        [3, 4, 5, 5, 5],
+        [3, 4, 5, 9, 5],
+        [1, 1, 5, 5, 25]
+      ]
     }
     chai.request(server)
       .post('/max_scholarship')
@@ -49,4 +56,29 @@ describe('Test for server response', () => {
 });
 
 describe('Test API inner functions', () => {
+  const seq = [5, 9, 25];
+  const data = [
+    [1, 2, 3, 4, 5],
+    [1, 1, 2, 3, 5],
+    [3, 4, 5, 5, 5],
+    [3, 4, 5, 9, 5],
+    [1, 1, 5, 5, 25]
+  ];
+  it('Gives the product of a sequence', (done) => {
+    const res = api.seqTotal(seq);
+    expect(res)
+      .toBeA('number', 'The result should be a number.')
+      .toEqual(1125, 'The result should be 1125.');
+    done();
+  });
+  it('Takes a matrix and returns a sequence of the right length.', (done) => {
+    const res = api.arrToSeq(data);
+    expect(data).toBeA('array', 'The matrix should be an array.');
+    expect(res)
+      .toBeA('array', 'The sequence should be an array.')
+      .toEqual(seq, 'It should be the same as seq up top.');
+    expect(res.length)
+      .toEqual(seq.length, 'It should be length 3.');
+    done();
+  });
 });
