@@ -8,12 +8,10 @@
 require('dotenv').config({
   silent: true
 });
-const express     = require('express'); // call express
-const app         = express(); // define our app using express
-const bodyParser  = require('body-parser');
-const api         = require('./controllers/scholarships');
-
-app.set('superSecret', process.env.SECRET); // secret variable
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const api = require('./controllers/scholarships');
 
 /* Configure app to use bodyParser()
  * this will let us get the data from a POST
@@ -25,15 +23,16 @@ app.use(bodyParser.json());
 
 // REGISTER OUR ROUTES -------------------------------
 
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'x-access-token');
+  res.header('Access-Control-Allow-Methods', 'GET,POST');
   next();
 });
 
 // Serves swagger UI at the root.
-app.get('/', (req, res) => res.json({message: "Welcome, lets find your best scholarships!"}));
+app.get('/', (req, res) => res.json({
+  message: "Welcome, lets find your best scholarships!"
+}));
 
 //Creates endpoint handler for /max_scholarship
 app.route('/max_scholarship')

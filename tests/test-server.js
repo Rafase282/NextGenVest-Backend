@@ -23,6 +23,7 @@ describe('Test for server response', () => {
         res.body.should.be.eql({
           message: "Welcome, lets find your best scholarships!"
         });
+        if (err) throw err;
         done();
       });
   });
@@ -40,6 +41,7 @@ describe('Test for server response', () => {
         res.body.sequence.should.be.a('array');
         res.body.should.have.property('total');
         res.body.total.should.be.a('number');
+        if (err) throw err;
         done();
       });
   });
