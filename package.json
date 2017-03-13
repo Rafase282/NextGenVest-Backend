@@ -1,0 +1,32 @@
+{
+  "name": "scholarship-chooser",
+  "version": "1.0.0",
+  "description": "NextGenVest Back-end Challenge, this allows you to choose the best scholarships you have available.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rafase282/NextGenVest-Backend.git"
+  },
+  "keywords": [
+    "Scholarships",
+    "NextGenVest",
+    "Rafase282"
+  ],
+  "author": "Rafael Rodriguez",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Rafase282/NextGenVest-Backend/issues"
+  },
+  "homepage": "https://github.com/Rafase282/NextGenVest-Backend#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7"
+  }
+}
