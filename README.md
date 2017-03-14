@@ -2,8 +2,7 @@
 
 ## Code challenge
 
-Hi! Very excited to see what you can do. Please complete this coding challenge and submit within 7 days.
-Pick either the front-end or back-end challenge (depending on what you're interested in applying for). You can also do both if you want to be considered for both positions.
+Hi! Very excited to see what you can do. Please complete this coding challenge and submit within 7 days. Pick either the front-end or back-end challenge (depending on what you're interested in applying for). You can also do both if you want to be considered for both positions.
 
 ## Languages
 
@@ -24,7 +23,7 @@ Lucky you! Your hacking skills have been recognized and you've been awarded a bu
 
 In this challenge, pick the 11 scholarships that give you the most money! You can only pick sequential scholarships and the product of all scholarships you pick is how much money you'll be awarded! (this school is very cheap, so you only need a few dollars... scholarships are in the range 0-100)
 
-The number of scholarships n is such that n >= 100.
+The number of scholarships n is such that n >= 100\.
 
 Once you've implemented your scholarship selection algorithm, build a small REST API that takes in the nxn matrix of scholarships given and returns your selections. An example request is outlined below.
 
@@ -38,10 +37,10 @@ Once you've implemented your scholarship selection algorithm, build a small REST
   1 1 5 5 25
   ```
 
-Answer: `5 * 9 * 25 = 1125`
+Answer: `5 * 9 * 25 = 1125` (this is not wrong, figure out where this pattern is...)
 
-API Specs:
-`POST /max_scholarship`
+API Specs:<br>
+`POST /max_scholarship`<br>
 `'Content-Type: application/json'`
 
 Sample json:
@@ -55,7 +54,6 @@ Sample json:
   [1,1,5,5,25]
   ]
 }
-
 ```
 
 Response:
@@ -63,6 +61,14 @@ Response:
 ```json
 {"sequence": [5,9,25], "total": 1125}
 ```
+
+## Solution Instruction
+
+1. After you clone do `npm install`
+2. Test the API with `npm run test`
+3. To just run and test that way do `npm start`
+
+Optionaly if you want to work on it, you can use `npm run lint` to lint as you go.
 
 ## Credits
 

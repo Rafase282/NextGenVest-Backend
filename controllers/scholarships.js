@@ -29,13 +29,15 @@ const seqTotal = exports.seqTotal = (seq) => {
  * @param {Array} matrix
  * @param {Number} size
  * @param {Number} pick
- * @return {Array}
+ * @return {Array} seq
  */
 const arrToSeq = exports.arrToSeq = (matrix, size, pick) => {
+  let seq = [];
+  // Ensures minimun matrix size.
   if (valMatrix(matrix, size)) {
-
+    //To-DO: Get the right sequence.
   }
-  return matrix[1].length <= size ? matrix[0] : matrix[1];
+  return seq;
 }
 
 /**
