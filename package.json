@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha tests/test-server.js || true",
     "start": "nodemon server.js",
-    "lint": "eslint *.js && eslint controllers/*.js && eslint tests/*.js"
+    "lint": "eslint *.js && eslint controllers/*.js && eslint tests/*.js || true"
   },
   "repository": {
     "type": "git",
