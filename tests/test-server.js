@@ -22,6 +22,8 @@ const data = [
   [1, 1, 5, 5, 25]
 ];
 const matrix = {data: data};
+const size = 5;
+const pick = 3;
 
 describe('Test for server response\n', () => {
   it('GET /: Responds with JSON Message', (done) => {
@@ -66,13 +68,21 @@ describe('Test API inner functions\n', () => {
     done();
   });
   it('Takes a matrix and returns a sequence of the right length.', (done) => {
-    const res = api.arrToSeq(data);
+    const res = api.arrToSeq(data, size, pick);
     expect(data).toBeA('array', 'The matrix should be an array.');
+    expect(res.length)
+      .toEqual(pick, `The sequence lenght should be ${pick}`);
     expect(res)
       .toBeA('array', 'The sequence should be an array.')
       .toEqual(seq, 'It should be the same as seq up top.');
-    expect(res.length)
-      .toEqual(seq.length, 'It should be length 3.');
+
+    done();
+  });
+  it(`Matrix should be  n * n where n = ${size}`, (done) => {
+    expect(data).toBeA('array', 'The matrix should be an array.');
+    expect(api.valMatrix(data, size))
+      .toBeA('boolean', 'It should be a boolean')
+      .toBe(true, 'It should be a true');
     done();
   });
 });
