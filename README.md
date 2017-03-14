@@ -23,7 +23,31 @@ Lucky you! Your hacking skills have been recognized and you've been awarded a bu
 
 In this challenge, pick the 11 scholarships that give you the most money! You can only pick sequential scholarships and the product of all scholarships you pick is how much money you'll be awarded! (this school is very cheap, so you only need a few dollars... scholarships are in the range 0-100)
 
-The number of scholarships n is such that n >= 100\.
+Scholarships can appear on the same row
+```
+X X 2 3 4 X
+```
+Or same column
+```
+X
+2
+3
+4
+X
+```
+Or on a diagonal
+```
+1 X X
+X 3 X
+X X 5
+
+----------
+
+X X 1
+X 3 X
+5 X X
+```
+The number of scholarships n is such that n >= 100.
 
 Once you've implemented your scholarship selection algorithm, build a small REST API that takes in the nxn matrix of scholarships given and returns your selections. An example request is outlined below.
 
